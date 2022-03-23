@@ -1,0 +1,29 @@
+*, 
+*::before, 
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 1rem;
+    font-family: sans-serif;
+    background-color:black;
+    color:white;
+}
+header{
+    text-align: center;
+}
+h1{
+    padding: 1.5em;
+}
+input{
+    margin: 1em;
+}
+
+.flex-container {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
