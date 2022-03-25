@@ -251,25 +251,3 @@ const movies = [{
     poster: "https://cdn.filmtotaal.nl/images/thumbnails/ft-692185-555x823.jpg"
 }
 ];
-
-/*const avengerMovies = movies.filter(function(movie){
-    return movie.title.includes("Avenger");
-});
-
-console.log ("avenger movies", avengerMovies)
-
-const batmanMovies = movies.filter(function(movie){
-    return movie.title.includes("Batman");
-});
-
-console.log ("batman movies", batmanMovies);
-
-
-
-
-let newestMovies = movies.filter(movie => movie.year > "2014")
-.map(movie => movie.poster);
-console.log ("latest movies", newestMovies);*/
-
-//const princessMovies = movies.filter(movie => movie.title.indexOf("Princess") > -1);
-//console.log ("princess movies", princessMovies)

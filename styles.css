@@ -27,3 +27,19 @@ input{
     display: flex;
     justify-content: space-between;
 }
+
+.movieGridContainer{
+    margin: 0  auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.movieCard{
+    width: 100px;
+    scale: 1/1.5;
+}
+.movieCard a image{
+    width:100%;
+}
