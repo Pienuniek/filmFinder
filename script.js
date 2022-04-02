@@ -25,10 +25,12 @@ movies.forEach(movie => {
 
 //the sorting eventlisteners
 newestRadioBtn.addEventListener('click', ()=>{});
-avengerRadioBtn.addEventListener('click', (item)=> {
-    const aveng = item.value;
-    movieFilter(movie);
-    console.log(movie, aveng);
+avengerRadioBtn.addEventListener('click', (movies)=> {
+   movies.filter(movie => {
+      if(!movie.title.includes("Avenger")){
+          movie.classList.add(hidden)
+      } else {movie.classList.remove(hidden)}
+   })
 });
 
 xMenRadioBtn.addEventListener('click', ()=>{});
@@ -36,10 +38,11 @@ princessRadioBtn.addEventListener('click',()=>{});
 batmanRadioBtn.addEventListener('click', ()=>{});
 
 //sorting function
-function movieFilter(movie){movies.filter(movie.title.includes(item.value))}
+function moviesFilter(movie){
+    movies.filter(movie.title.includes(item.value))}
 const newestMovies = movies.filter(movie => movie.year >= "2014");
 
-console.log(movieFilter);
+console.log(moviesFilter);
 console.log(newestMovies);
 
 

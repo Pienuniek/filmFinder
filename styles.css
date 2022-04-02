@@ -33,19 +33,20 @@ input{
 }
 
 .movieGridContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
-    margin: 2rem  auto;
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    margin: 2rem  auto;
+    width: 90%;
     gap: 10px;
 }
 
 .movieCard{
-    max-width: 150px;
+    max-width: 200px;
     aspect-ratio: 1/1.5;
 }
 .movieCard a img{
     width:100%;
+}
+.hidden {
+    display: none;
 }
