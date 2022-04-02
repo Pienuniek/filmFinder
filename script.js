@@ -18,10 +18,11 @@ const generateCardTemplate = (movie)=>{
      movieGrid.innerHTML += html;
  }
 
-//creatingthefilledgrid
+//creating the filled grid
 movies.forEach(movie => {
     generateCardTemplate(movie);
 });
+
 //the sorting eventlisteners
 newestRadioBtn.addEventListener('click', ()=>{});
 avengerRadioBtn.addEventListener('click', (item)=> {

@@ -251,3 +251,4 @@ const movies = [{
     poster: "https://cdn.filmtotaal.nl/images/thumbnails/ft-692185-555x823.jpg"
 }
 ];
+

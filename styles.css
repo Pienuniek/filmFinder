@@ -5,6 +5,10 @@
     padding:0;
     box-sizing: border-box;
 }
+img {
+    max-width: 100%;
+    display: block;
+}
 
 body{
     margin: 1rem;
@@ -29,7 +33,9 @@ input{
 }
 
 .movieGridContainer{
-    margin: 0  auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+    margin: 2rem  auto;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -37,9 +43,9 @@ input{
 }
 
 .movieCard{
-    width: 100px;
-    scale: 1/1.5;
+    max-width: 150px;
+    aspect-ratio: 1/1.5;
 }
-.movieCard a image{
+.movieCard a img{
     width:100%;
 }
