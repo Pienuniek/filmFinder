@@ -47,6 +47,7 @@ input{
 .movieCard a img{
     width:100%;
 }
-.hidden {
-    display: none !important;
+#search > input{
+    font-size: 1.1rem;
+    padding: .5rem;
 }

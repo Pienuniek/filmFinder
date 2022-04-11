@@ -1,8 +1,7 @@
 const radioBtns = document.getElementsByName("moviechoice");
 const movieGrid = document.querySelector(".movieGridContainer");
-const searchBar= document.getElementById("searchBar");
+const searchBar = document.getElementById("searchBar");
 let filteredMovies = [];
-let newestMovies = [];
 
 //making moviecards
 
@@ -19,21 +18,15 @@ const generateCardTemplate = (movie) => {
 //creating the filled grid
 
 const placeMovies = () => {
-    if (filteredMovies.length == 0){
-        newestMovies.forEach((movie) => {
-            generateCardTemplate(movie);
-        })
-    }else {
+    deleteMovies();
   filteredMovies.forEach((movie) => {
     generateCardTemplate(movie);
   });
 };
-};
+
 // empty the grid
 
-const deleteMovies = () => movieGrid.innerHTML = "";
-  
-
+const deleteMovies = () => (movieGrid.innerHTML = "");
 
 // individual filters for each radiobutton.value
 
@@ -43,60 +36,59 @@ const deleteMovies = () => movieGrid.innerHTML = "";
 // const xMenMovies = movies.filter(movie => movie.title.includes("X-Men"));
 // const princessMovies = movies.filter(movie => movie.title.includes//("Princess"));
 
-// console.log(princessMovies);
-// console.log(xMenMovies);
-// console.log(avengerMovies);
-// console.log (batmanMovies)
-// console.log(newestMovies);
-
 //filters to make the groups
 
 function filterMovies(wordInMovieTitle) {
-    deleteMovies();
-    filteredMovies = movies.filter((movie) => {
-            return movie.title.includes(wordInMovieTitle);
-        });
-
-    placeMovies();
-  }
+  filteredMovies = movies.filter((movie) => {
+    return movie.title.includes(wordInMovieTitle);
+  });
+  placeMovies();
+}
 function filterNewestMovies() {
-    deleteMovies();
-    newestMovies = movies.filter((movie) => {
-            return movie.year >= "2014";
-        });
-        
-    placeMovies();
-    }
+  filteredMovies = movies.filter((movie) => {
+    return movie.year >= "2014";
+  });
+  //console.log(filteredMovies, "filterNewestMovies");
+  placeMovies();
+}
 
 //eventListeners
 
 function handleOnChangeEvent(e) {
-    switch (e.target.value) {
-        case "newest":
-            deleteMovies();
-            filterNewestMovies("2014");
-            break;
-        case "Avenger":
-            filterMovies("Avenger");
-            break;
-        case "X-Men":
-            filterMovies("X-Men");
-            break;
-        case "Princess":
-            filterMovies("Princess");
-            break;
-        case "Batman":
-            filterMovies("Batman");
-            break;
-        default:
-            console.log("geen idee welke film");
-            break;
-    }
+  switch (e.target.value) {
+    case "newest":
+      filterNewestMovies();
+      //console.log(filteredMovies, "switch");
+      break;
+    case "Avenger":
+      filterMovies("Avenger");
+      break;
+    case "X-Men":
+      filterMovies("X-Men");
+      break;
+    case "Princess":
+      filterMovies("Princess");
+      break;
+    case "Batman":
+      filterMovies("Batman");
+      break;
+    default:
+      console.log("geen idee welke film");
+      break;
+  }
 }
 radioBtns.forEach((radioButton) => {
-    radioButton.addEventListener("change", handleOnChangeEvent);
-    });
-    
+  radioButton.addEventListener("change", handleOnChangeEvent);
+});
+
+searchBar.addEventListener("keyup", (e) => {
+  let value = e.target.value.toLowerCase();
+  filteredMovies = movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(value);
+  });
+  deleteMovies();
+  placeMovies();
+});
 
 // initial value, all movies in the grid
 
