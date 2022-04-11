@@ -1,5 +1,6 @@
 const radioBtns = document.getElementsByName("moviechoice");
 const movieGrid = document.querySelector(".movieGridContainer");
+const searchBar= document.getElementById("searchBar");
 let filteredMovies = [];
 let newestMovies = [];
 
@@ -18,7 +19,7 @@ const generateCardTemplate = (movie) => {
 //creating the filled grid
 
 const placeMovies = () => {
-    if (filteredMovies === []){
+    if (filteredMovies.length == 0){
         newestMovies.forEach((movie) => {
             generateCardTemplate(movie);
         })
@@ -53,7 +54,7 @@ const deleteMovies = () => movieGrid.innerHTML = "";
 function filterMovies(wordInMovieTitle) {
     deleteMovies();
     filteredMovies = movies.filter((movie) => {
-            return movie.Title.includes(wordInMovieTitle);
+            return movie.title.includes(wordInMovieTitle);
         });
 
     placeMovies();
@@ -61,37 +62,30 @@ function filterMovies(wordInMovieTitle) {
 function filterNewestMovies() {
     deleteMovies();
     newestMovies = movies.filter((movie) => {
-            return movie.Year >= 2014;
+            return movie.year >= "2014";
         });
+        
     placeMovies();
     }
+
 //eventListeners
 
-function addEventListeners() {
-    const radioButtons = document.getElementsByName("film-filter");
-
-    radioButtons.forEach((radioButton) => {
-        radioButton.addEventListener("click", handleOnChangeEvent);
-    });
-    console.log(e.target.value);
-}
-
-function handleOnChangeEvent(event) {
-    switch (event.target.value) {
+function handleOnChangeEvent(e) {
+    switch (e.target.value) {
         case "newest":
             deleteMovies();
-            newestMovies("2014");
+            filterNewestMovies("2014");
             break;
-        case "avenger":
+        case "Avenger":
             filterMovies("Avenger");
             break;
-        case "xmen":
+        case "X-Men":
             filterMovies("X-Men");
             break;
-        case "princess":
+        case "Princess":
             filterMovies("Princess");
             break;
-        case "batman":
+        case "Batman":
             filterMovies("Batman");
             break;
         default:
@@ -99,6 +93,10 @@ function handleOnChangeEvent(event) {
             break;
     }
 }
+radioBtns.forEach((radioButton) => {
+    radioButton.addEventListener("change", handleOnChangeEvent);
+    });
+    
 
 // initial value, all movies in the grid
 
